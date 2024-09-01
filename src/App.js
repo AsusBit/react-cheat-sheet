@@ -14,17 +14,21 @@ const bodyStyle = {
   backgroundColor: "#000",
   minHeight: "100vh",
   textShadow: '0 0 10px #00d200',
+  '@media (max-width: 600px)': {
+    transform: 'scale(0.5)',
+    transformOrigin: 'top left',
+  },
 }
 
 const title = "mt-10 mr-5 text-[4rem]";
-const sub = "text-[3rem] mr-5";
+const sub = "text-[3rem] scale-50 sm:scale-100 mr-5";
 
 function App() {
 
   return (
     <div style={bodyStyle}>
       <div className='font-handjet text-green-500' style={{direction: 'rtl'}}>
-        <p className='text-[10rem] underline-offset-[40px] underline'>ملخص رياكت لجماعة CSG</p>
+        <p className='text-[2.5rem] text-center sm:text-[10rem] underline-offset-[1rem] sm:underline-offset-[40px] underline'>ملخص رياكت لجماعة CSG</p>
 
         <Title text={"ما هو React؟"} />
         <Sub text={"هي framework مخصص لjavascript يستخدم لبناء مواقع."} />
@@ -34,30 +38,30 @@ function App() {
 
         <Title text={"الخطوات"} />
         <Sub text={"تأكد من تثبيت Node.js و npm على جهازك. يمكنك التحقق من ذلك باستخدام الأوامر التالية:"} />
-        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.5rem] rounded'>
+        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.1rem] sm:text-[1.5rem] rounded'>
           <CodeBlock codeString={`node -v\nnpm -v`} />
         </div>
 
         <Sub text={"بعد التحقق من تثبيت Node.js و npm، استخدم الأمر التالي لإنشاء مشروع React جديد:"} />
-        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.5rem] rounded'>
+        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.1rem] sm:text-[1.5rem] rounded'>
           <CodeBlock codeString={`npx create-react-app my-app\ncd my-app\nnpm start`} />
         </div>
 
         <Sub text={"الآن وقد قمت بإنشاء مشروع React، يمكنك البدء في بناء مكوناتك وتطبيقاتك."} />
 
         <Title text={"المفهوم الأول: components"} />
-        <div className='flex'>
+        <div className='sm:flex'>
           <Sub text={"هي قطع من الكود تحطها مع بعضها و تبني بيها الصفحه، نفس الlego"} />
           <img src={lego} className='w-[20rem] contrast-150' />
         </div>
         <Sub text={"تكتب بهذا الشكل:"} />
-        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.5rem] rounded'>
+        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.1rem] sm:text-[1.5rem] rounded'>
           <CodeBlock codeString={"export default function Component(){\nreturn(\n<div>CSG</div>\n)}"} />
         </div>
 
         <Title text={"المفهوم الثاني: props"} />
         <Sub text={"هي وسيلة لتمرير البيانات بين components. يعني تقدر ترسل معلومات من component إلى آخر."} />
-        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.5rem] rounded'>
+        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.1rem] sm:text-[1.5rem] rounded'>
           <CodeBlock codeString={`function Welcome(name) {\n  return <h1>اهلا {name}</h1>;\n}\n\n<Welcome name="Hamzah" />`} />
         </div>
       {/* props */}
@@ -65,7 +69,7 @@ function App() {
         <PropExample/>
         <Title text={"المفهوم الثالث: state"} />
         <Sub text={"هي طريقة للتحكم في البيانات داخل component. مثلا لو عندك زر و تبغى تحسب كم مره المستخدم ضغط الزر."} />
-        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.5rem] rounded'>
+        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.1rem] sm:text-[1.5rem] rounded'>
           <CodeBlock codeString={`import { useState } from "react";\n\nexport default function Concept1 (){\n  const [num, setNum] = useState(0);\n\n  return (\n    <div className="flex justify-center items-center">\n      <div>\n        <p>\n            num1: {num}\n        </p>\n\n        <button className=" border-[#00d200] border-[2px] px-[2rem] active:scale-95" onClick={()=>{ setNum(num + 1) } }>Anas</button>\n        </div>\n    </div>)\n}`} />
         </div>
 
@@ -75,7 +79,7 @@ function App() {
         </div>
         <Title text={"المفهوم الرابع: useEffect"} />
         <Sub text={"هي طريقة لتنفيذ شغلات معينة بعد ما يتغير state معين أو أول ما يحمل component."} />
-        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.5rem] rounded'>
+        <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.1rem] sm:text-[1.5rem] rounded'>
           <CodeBlock codeString={`import { useState, useEffect } from "react";\n\nexport default function Concept (){\n  const [num, setNum] = useState(0);\n  const [num2, setNum2] = useState(0)\n\n  useEffect(()=>{\n    setNum2(num2 + 2);\n  },[num])\n  return (\n    <div>\n        <p>\n            {num}\n        </p>\n        <p>\n            {num2}\n        </p>\n        <button onClick={()=>{ setNum(num + 1) } }>Anas</button>\n    </div>)\n}`} />
         </div>
 
