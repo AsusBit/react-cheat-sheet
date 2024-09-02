@@ -111,8 +111,8 @@ function App() {
         <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.1rem] sm:text-[1.5rem] rounded'>
           <CodeBlock codeString={`function ConditionalRender({ showContent }) {\n  return (\n    <div>\n      {showContent ? <p>Show this content</p> : <p>Hide this content</p>}\n    </div>\n  );\n}`} />
         </div>
-        <div className=' grid'>
-        {textA && "<I use && , if im false i dont appear >"}
+        <div style={{direction: 'ltr'}} className=' grid text-[2rem]'>
+        {textA && <>{"<I use && , if im false i dont appear >"}<br/></>}
         {textA ? " <im true now> ":" <im false now> "}
         <button className={btn} onClick={()=>{setTextA(prev=> !prev)}}>toggle text</button>
         </div>
@@ -123,8 +123,8 @@ function App() {
         <div style={{textShadow: "0 0 0px", direction: 'ltr', fontFamily: 'monospace'}} className='text-[1.1rem] sm:text-[1.5rem] rounded'>
           <CodeBlock codeString={`function ListExample() {\n  const items = ["Item 1", "Item 2", "Item 3"];\n\n  return (\n    <ul>\n      {items.map((item, index) => (\n        <li key={index}>{item}</li>\n      ))}\n    </ul>\n  );\n}`} />
         </div>
-        <p>{'list: ["ammar", "anas", "muhanned", "hamzah"]'}</p>
-        {arr.map((name, index)=><p key={index}>print {index + 1}: {name}</p>)}
+        <p style={{direction: 'ltr'}} className='text-[2rem]'>{'list: ["ammar", "anas", "muhanned", "hamzah"]'}</p>
+        {arr.map((name, index)=><p style={{direction: 'ltr'}} className='text-[2rem]' key={index}>print {index + 1}: {name}</p>)}
 
 
         {/* External Dependencies (React Icons) */}
